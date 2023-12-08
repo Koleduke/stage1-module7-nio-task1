@@ -26,13 +26,11 @@ public class FileReader {
                 }
                 buffer.clear();
             }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new StudentNotFoundException(e);
         } catch (BufferUnderflowException e) {
 
             throw new BufferUnderflowException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
         String[] sentences = input.toString().split("\n");
         for (int i = 0; i<sentences.length;i++ ){
